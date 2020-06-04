@@ -1,0 +1,39 @@
+<div class="modal-header ">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter un Fournisseur</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="FournisseurForm">
+        <div class="form-group">
+            <label class="form-control-label" for="input-username">Name</label>
+            <input formControlName="name" type="text" id="input-username" class="form-control form-control-alternative"
+                placeholder="" value="">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="input-username">Num Telefon</label>
+            <input formControlName="tel" type="text" id="input-tel" class="form-control form-control-alternative"
+                placeholder="Num Telefon" value="">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="input-username">E-mail</label>
+            <input formControlName="email" type="text" id="input-email" class="form-control form-control-alternative"
+                placeholder="E-mail" value="">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="input-username">Adress</label>
+            <input formControlName="adress" type="text" id="input-adress" class="form-control form-control-alternative"
+                placeholder="Adress" value="">
+        </div>
+    </form>
+</div>
+<div class="modal-footer row">
+    <div>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">Cancel</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success btn-outline-dark"
+            (click)="saveProduct(FournisseurForm.value)">Save</button>
+    </div>
+</div>

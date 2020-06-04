@@ -1,0 +1,16 @@
+//
+// Card
+//
+
+
+.card-translucent {
+    background-color: rgba(18, 91, 152, 0.08);
+}
+.card-header-btn{
+    display: inline-flex;
+    padding: 0.8rem;
+
+    .col-btn-table{
+        text-align: right;
+    }
+}

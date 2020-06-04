@@ -1,0 +1,68 @@
+<div class="header bg-gradient-green pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="row card-header border-0 card-header-btn">
+                    <div class="col">
+                        <h3 class="mb-0">Stock</h3>
+                    </div>
+                    <div class="col col-btn-table">
+                        <button class="btn btn-info" type="button" (click)="addProduct()"><i class="fas fa-plus"></i>
+                            Nouveau
+                            produit</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <ng-container *ngFor="let col of culumns_table">
+                                    <th scope="col">
+                                        <label>{{col.name}}</label>
+                                        <input type="text" [id]="col.field"
+                                            class="form-control form-control-alternative" [placeholder]="col.field"
+                                            value="">
+                                    </th>
+                                </ng-container>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container
+                                *ngFor="let row of dataTable | paginate: { itemsPerPage: 10, currentPage: p }">
+                                <tr>
+                                    <ng-container *ngFor="let col of culumns_table">
+                                        <td>
+                                            <ng-container [ngSwitch]="col.type">
+                                                <span *ngSwitchCase="'color'" class="circle">
+                                                </span>
+                                                <span *ngSwitchCase="'string'" class="badge badge-dot mr-4">
+                                                    {{row[col.field]}}
+                                                </span>
+                                                <span *ngSwitchCase="'number'" class="badge badge-dot mr-4">
+                                                    {{row[col.field]}}
+                                                </span>
+                                                <span *ngSwitchDefault>
+                                                    {{row[col.field]}}
+                                                </span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer py-4">
+                    <nav aria-label="...">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
